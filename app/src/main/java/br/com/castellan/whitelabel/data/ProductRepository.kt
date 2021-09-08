@@ -2,8 +2,9 @@ package br.com.castellan.whitelabel.data
 
 import android.net.Uri
 import br.com.castellan.whitelabel.domain.model.Product
+import javax.inject.Inject
 
-class ProductRepository(private val dataSource: ProductDataSource) {
+class ProductRepository @Inject constructor(private val dataSource: ProductDataSource) {
     suspend fun getProducts(): List<Product> = dataSource.getProducts()
 
     suspend fun uploadProductImage(imageUri: Uri):String = dataSource.uploadProductImage(imageUri)
