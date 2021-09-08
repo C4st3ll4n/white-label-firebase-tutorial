@@ -64,6 +64,17 @@ class FirebaseProductDataSource(
     }
 
     override suspend fun createProduct(product: Product): Product {
-        TODO("Not yet implemented")
+        return suspendCoroutine {
+            documentReference
+                .collection(COLLECTION_PRODUCTS)
+                .document(System.currentTimeMillis().toString())
+                .set(product)
+                .addOnSuccessListener { _ ->
+                    it.resumeWith(Result.success(product))
+                }
+                .addOnFailureListener { exception ->
+                    it.resumeWith(Result.failure(exception))
+                }
+        }
     }
 }
