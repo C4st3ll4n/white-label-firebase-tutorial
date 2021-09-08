@@ -37,6 +37,25 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    productFlavors {
+        flavorDimensions 'product', 'side'
+        bike {
+            dimension 'product'
+        }
+
+        car {
+            dimension 'product'
+        }
+
+        client {
+            dimension 'side'
+        }
+
+        admin {
+            dimension 'side'
+        }
+    }
 }
 
 dependencies {
