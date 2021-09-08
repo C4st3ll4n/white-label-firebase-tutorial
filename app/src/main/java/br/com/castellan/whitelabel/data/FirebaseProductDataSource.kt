@@ -13,8 +13,8 @@ import javax.inject.Inject
 import kotlin.coroutines.suspendCoroutine
 
 class FirebaseProductDataSource @Inject constructor(
-    val firebaseStorage: FirebaseStorage,
-    val firebaseFirestore: FirebaseFirestore,
+    firebaseStorage: FirebaseStorage,
+    firebaseFirestore: FirebaseFirestore,
 ) : ProductDataSource {
 
     private val documentReference =
