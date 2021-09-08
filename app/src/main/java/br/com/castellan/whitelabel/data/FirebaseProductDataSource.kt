@@ -5,8 +5,10 @@ import br.com.castellan.whitelabel.BuildConfig.FIREBASE_FLAVOR_COLLECTION
 import br.com.castellan.whitelabel.domain.model.Product
 import br.com.castellan.whitelabel.util.COLLECTION_PRODUCTS
 import br.com.castellan.whitelabel.util.COLLECTION_ROOT
+import br.com.castellan.whitelabel.util.STORAGE_IMAGES
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import java.util.*
 import kotlin.coroutines.suspendCoroutine
 
 class FirebaseProductDataSource(
@@ -36,14 +38,29 @@ class FirebaseProductDataSource(
             }
 
 
-            productsReference.get().addOnFailureListener { execption ->
-                it.resumeWith(Result.failure(execption))
+            productsReference.get().addOnFailureListener { exception ->
+                it.resumeWith(Result.failure(exception))
             }
         }
     }
 
     override suspend fun uploadProductImage(imageUri: Uri): String {
-        TODO("Not yet implemented")
+        return suspendCoroutine {
+            val key = UUID.randomUUID()
+
+            val childReference = storageReference.child(
+                "$STORAGE_IMAGES/$FIREBASE_FLAVOR_COLLECTION/$key"
+            )
+
+            childReference.putFile(imageUri)
+                .addOnSuccessListener { uri ->
+                    val path = uri.toString()
+                    it.resumeWith(Result.success(path))
+                }
+                .addOnFailureListener { exception ->
+                    it.resumeWith(Result.failure(exception))
+                }
+        }
     }
 
     override suspend fun createProduct(product: Product): Product {
