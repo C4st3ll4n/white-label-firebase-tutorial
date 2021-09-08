@@ -1,4 +1,4 @@
-package br.com.douglasmotta.whitelabeltutorial
+package br.com.castellan.whitelabel
 
 import org.junit.Test
 

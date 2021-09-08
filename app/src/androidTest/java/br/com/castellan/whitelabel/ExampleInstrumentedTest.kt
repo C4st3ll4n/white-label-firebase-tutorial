@@ -1,4 +1,4 @@
-package br.com.douglasmotta.whitelabeltutorial
+package br.com.castellan.whitelabel
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

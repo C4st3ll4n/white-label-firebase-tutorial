@@ -1,11 +1,11 @@
-package br.com.douglasmotta.whitelabeltutorial.ui.products
+package br.com.castellan.whitelabel.ui.products
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import br.com.douglasmotta.whitelabeltutorial.databinding.FragmentProductsBinding
+import br.com.castellan.whitelabel.databinding.FragmentProductsBinding
 
 class ProductsFragment : Fragment() {
 

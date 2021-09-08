@@ -12,7 +12,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "br.com.douglasmotta.whitelabeltutorial"
+        applicationId "br.com.castellan.whitelabel"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
