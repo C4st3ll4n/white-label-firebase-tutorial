@@ -26,7 +26,7 @@ class ProductsAdapter: ListAdapter<Product, ProductsAdapter.ProductsVH>(DIFF_CAL
 
                 textDescriptionProduct.text = product.description
 
-                textDescriptionProduct.text = product.price.toCurrency()
+                txtPriceProduct.text = product.price.toCurrency()
             }
         }
 
