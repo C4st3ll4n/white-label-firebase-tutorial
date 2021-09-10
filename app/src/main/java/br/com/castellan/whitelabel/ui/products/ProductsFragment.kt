@@ -29,13 +29,22 @@ class ProductsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupListeners()
         setRecyclerView()
         observerVMEvents()
         viewModel.getProducts()
     }
 
+    private fun setupListeners() {
+        binding.fabAdd.setOnClickListener {
+        }
+    }
+
     private fun observerVMEvents() {
         viewModel.productsData.observe(viewLifecycleOwner, productsAdapter::submitList)
+
+        viewModel.addButtonVisibilityData.observe(viewLifecycleOwner,
+            { binding.fabAdd.visibility = it })
     }
 
     override fun onDestroyView() {
