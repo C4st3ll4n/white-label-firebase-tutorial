@@ -31,6 +31,7 @@
         tools:text="BICICLETA HEINEKEN DA EUROPA GLACIAL"
         android:textAllCaps="true"
         android:textAlignment="center"
+        style="@style/Text.Primary"
         />
 
     <TextView
@@ -43,5 +44,7 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/textDescriptionProduct"
         app:layout_constraintStart_toStartOf="@+id/textDescriptionProduct"
-        app:layout_constraintTop_toBottomOf="@+id/textDescriptionProduct" />
+        app:layout_constraintTop_toBottomOf="@+id/textDescriptionProduct"
+        style="@style/Text.Secondary"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

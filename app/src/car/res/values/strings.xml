@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="products_screen_title">Car</string>
+    <string name="products_fab_add_product">Add Card</string>
+
+</resources>
