@@ -54,9 +54,11 @@ class FirebaseProductDataSource @Inject constructor(
             )
 
             childReference.putFile(imageUri)
-                .addOnSuccessListener { uri ->
-                    val path = uri.toString()
-                    it.resumeWith(Result.success(path))
+                .addOnSuccessListener { task ->
+                    task.storage.downloadUrl.addOnSuccessListener { uri ->
+                        val path = uri.toString()
+                        it.resumeWith(Result.success(path))
+                    }
                 }
                 .addOnFailureListener { exception ->
                     it.resumeWith(Result.failure(exception))
